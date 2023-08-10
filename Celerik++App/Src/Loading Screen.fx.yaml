@@ -1873,11 +1873,3 @@
             Y: =lblLoadingText_AppName.Y + lblLoadingText_AppName.Height
             ZIndex: =6
 
-    HelloPCF1 As HelloPCF:
-        DisplayMode: =DisplayMode.Edit
-        Height: =426
-        Width: =494
-        X: =40
-        Y: =40
-        ZIndex: =3
-

@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_userassessmentdetails",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_userassessmentdetail",
+    "MaxGetRowsCount": 500,
+    "Name": "User Assessment Details",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_AssessmentTemplateItem": "Assessment Template Item",
+      "cre52_name": "Code",
+      "cre52_points": "Points",
+      "cre52_UserAssessment": "User Assessment",
+      "cre52_userassessmentdetail_AsyncOperations": "System Jobs",
+      "cre52_userassessmentdetail_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_userassessmentdetail_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_userassessmentdetail_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_userassessmentdetail_ProcessSession": "Process Sessions",
+      "cre52_userassessmentdetail_SyncErrors": "Sync Errors",
+      "cre52_userassessmentdetailid": "User Assessment Detail",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "User Assessment Details",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "User Assessment Details (Views)",
+    "Name": "_cre52_userassessmentdetail_views",
+    "RelatedEntityName": "User Assessment Details",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "7d13aeff-ba89-449c-8d6d-1056e70f05a9": "User Assessment Detail Associated View",
+      "a15860a6-f9e3-4255-8685-a2d23b338d5e": "Inactive User Assessment Details",
+      "a98ad7f1-741a-4ace-b81f-30de24489681": "User Assessment Detail Advanced Find View",
+      "e90a5050-f6b4-435f-81bf-3a90825e96b5": "User Assessment Detail Lookup View",
+      "ed45cd56-9182-42f2-a598-3da068ba1923": "Active User Assessment Details"
+    }
+  },
+  {
+    "DisplayName": "Status (User Assessment Details)",
+    "Name": "cre52_userassessmentdetail_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "User Assessment Details"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "User Assessment Details",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (User Assessment Details)",
+    "Name": "cre52_userassessmentdetail_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "User Assessment Details"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "User Assessment Details",
+    "Type": "OptionSetInfo"
+  }
+]

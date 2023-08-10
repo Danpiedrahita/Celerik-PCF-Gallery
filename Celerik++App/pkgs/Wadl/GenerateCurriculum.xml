@@ -1,0 +1,67 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://brazil-001.azure-apim.net/apim/logicflows" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="GenerateCurriculum" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="GenerateCurriculum" />
+  <grammars>
+    <jsonTypes targetNamespace="https://brazil-001.azure-apim.net/apim/logicflows" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="ManualTriggerInput_Name_Value_def" />
+      <string name="ManualTriggerInput_Email_Value_def" />
+      <string name="ManualTriggerInput_Phone_Value_def" />
+      <string name="ManualTriggerInput_Rol_Value_def" />
+      <string name="ManualTriggerInput_Location_Value_def" />
+      <string name="ManualTriggerInput_Intro_Value_def" />
+      <string name="ManualTriggerInput_Skills_Value_def" />
+      <string name="ManualTriggerInput_ImageProfile_Value_def" />
+      <string name="ManualTriggerInput_FileType_Valor_def" />
+      <object name="ManualTriggerInput">
+        <property name="Name_Value" type="string" />
+        <property name="Email_Value" type="string" />
+        <property name="Phone_Value" type="string" />
+        <property name="Rol_Value" type="string" />
+        <property name="Location_Value" type="string" />
+        <property name="Intro_Value" type="string" />
+        <property name="Skills_Value" type="string" />
+        <property name="ImageProfile_Value" type="string" />
+        <property name="FileType_Valor" type="string" />
+      </object>
+      <string name="ResponseActionOutput_link_def" />
+      <object name="ResponseActionOutput">
+        <property name="link" type="string" />
+      </object>
+      <object name="Run_responses_default_def" />
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://brazil-001.azure-apim.net/apim/logicflows">
+    <resource path="/{connectionId}/triggers/manual/run">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="Run">
+        <doc title="Runs a logic flow trigger." />
+        <request>
+          <param style="query" name="api-version" type="xs:string" required="true" fixed="2015-02-01-preview">
+            <doc title="The api version" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="Name_Value" path="/Name_Value" type="xs:string" required="true" />
+            <param style="plain" name="Email_Value" path="/Email_Value" type="xs:string" required="true" />
+            <param style="plain" name="Phone_Value" path="/Phone_Value" type="xs:string" required="true" />
+            <param style="plain" name="Rol_Value" path="/Rol_Value" type="xs:string" required="true" />
+            <param style="plain" name="Location_Value" path="/Location_Value" type="xs:string" required="true" />
+            <param style="plain" name="Intro_Value" path="/Intro_Value" type="xs:string" required="true" />
+            <param style="plain" name="Skills_Value" path="/Skills_Value" type="xs:string" required="true" />
+            <param style="plain" name="ImageProfile_Value" path="/ImageProfile_Value" type="xs:string" required="true" />
+            <param style="plain" name="FileType_Valor" path="/FileType_Valor" type="xs:string" required="true" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:ResponseActionOutput" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="logicflows" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

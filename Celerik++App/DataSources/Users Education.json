@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_usereducations",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_usereducation",
+    "MaxGetRowsCount": 500,
+    "Name": "Users Education",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_Certification": "Certification",
+      "cre52_domain_level": "Domain_Level",
+      "cre52_name": "User ID",
+      "cre52_usereducation_AsyncOperations": "System Jobs",
+      "cre52_usereducation_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_usereducation_FileAttachments": "FileAttachments",
+      "cre52_usereducation_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_usereducation_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_usereducation_ProcessSession": "Process Sessions",
+      "cre52_usereducation_SyncErrors": "Sync Errors",
+      "cre52_usereducationid": "User Education",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Users Education",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Users Education (Views)",
+    "Name": "_cre52_usereducation_views",
+    "RelatedEntityName": "Users Education",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "38c6102c-24d0-46e8-a87f-0c4f52e6ef6c": "User Education Advanced Find View",
+      "9d819ece-1959-4453-aa6e-21224b81ca1f": "User Education Lookup View",
+      "a9e3814b-efa4-4376-9410-35cd366044a9": "User Education Associated View",
+      "b5638565-ebb5-48ba-bc17-3690723a469f": "Active Users Education",
+      "e389b1a5-f194-4ae8-8df4-011d851efb7a": "Inactive Users Education"
+    }
+  },
+  {
+    "DisplayName": "Status (Users Education)",
+    "Name": "cre52_usereducation_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Users Education"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Users Education",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Users Education)",
+    "Name": "cre52_usereducation_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Users Education"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Users Education",
+    "Type": "OptionSetInfo"
+  }
+]

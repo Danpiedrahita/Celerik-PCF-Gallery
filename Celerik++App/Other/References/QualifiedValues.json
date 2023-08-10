@@ -1,0 +1,314 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_msft_profileplususersetting_forms",
+      "Namespace": "ProfilePlus User Settings (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_msft_openposition_forms",
+      "Namespace": "Open Positions (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_msft_expertisetag_forms",
+      "Namespace": "Expertise Tags (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_msft_personposition_forms",
+      "Namespace": "Person Positions (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_msft_projecttag_forms",
+      "Namespace": "Project Tags (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "Users (Forms)",
+      "Values": {
+        "Application User": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8",
+        "Information": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
+        "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "User form – Business": "c2413504-7eb2-4c59-a087-95d819866114",
+        "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
+      }
+    },
+    {
+      "Kind": "default.cds_msft_projectteammember_forms",
+      "Namespace": "Project Team Members (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_msft_project_forms",
+      "Namespace": "Projects (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_cre52_projectstatus_forms",
+      "Namespace": "Project Statuses (Forms)",
+      "Values": {
+        "Information": "e96ff62d-ddff-41a1-a662-4d28b99c17b9"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_projecthealthstatus_forms",
+      "Namespace": "Project Health Statuses (Forms)",
+      "Values": {
+        "Information": "32f7b167-792e-4f13-84d1-bfa7033ae48c"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_stacktechnology_forms",
+      "Namespace": "Stack Technologies (Forms)",
+      "Values": {
+        "Information": "0b35186f-c5e4-43e7-a156-ca2e50a423c8"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_usereducation_forms",
+      "Namespace": "Users Education (Forms)",
+      "Values": {
+        "Information": "2764ae60-a989-4430-95d2-eca63e71eb49"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_educationcertification_forms",
+      "Namespace": "Education Certifications (Forms)",
+      "Values": {
+        "Information": "c07e84d7-b352-43bc-a601-b6d68c03b910"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_projectstack_1_forms",
+      "Namespace": "Projects Stacks (Forms)",
+      "Values": {
+        "Information": "437095c3-31dd-4b33-bf23-ea4c70131fed"
+      }
+    },
+    {
+      "Kind": "default.cds_bulkdeletefailure_forms",
+      "Namespace": "Bulk Delete Failures (Forms)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_cre52_assessmenttemplate_forms",
+      "Namespace": "Assessment Templates (Forms)",
+      "Values": {
+        "Information": "4bebf45b-23f5-4998-acad-c4558e1c26e9"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_assessmenttemplateitem_forms",
+      "Namespace": "Assessment Template Items (Forms)",
+      "Values": {
+        "Information": "1aab4733-e503-4ebc-b9d2-9d4190d36784"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_userassessment_forms",
+      "Namespace": "User Assessments (Forms)",
+      "Values": {
+        "Information": "20f894e3-0c8f-42ee-8052-e06038d35c1d"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_userassessmentdetail_forms",
+      "Namespace": "User Assessment Details (Forms)",
+      "Values": {
+        "Information": "6dcf8bfe-9d79-4a1e-9cdf-ea37052c685f"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_celerikadmins_forms",
+      "Namespace": "Celerik Admins (Forms)",
+      "Values": {
+        "Information": "48efb0c0-8509-4c0c-af00-e4a91f9381e5"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_usersstack_forms",
+      "Namespace": "Users Stacks (Forms)",
+      "Values": {
+        "Information": "ac1414f7-c3bf-44e0-bc91-cd9483bbc370"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_celerikuser_forms",
+      "Namespace": "Celerik++ Users (Forms)",
+      "Values": {
+        "Information": "8de34b84-5ebd-4b48-97a6-94dd7b4d11d0"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_usereducationattachment_forms",
+      "Namespace": "User Education Attachments (Forms)",
+      "Values": {
+        "Information": "434ce77a-ce05-46da-9d82-e435b167a9bb"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_dashboardtimereport_forms",
+      "Namespace": "Dashboard Time Reports (Forms)",
+      "Values": {
+        "Information": "80976c62-012d-4b86-aa1b-cab8c0735de5"
+      }
+    },
+    {
+      "Kind": "default.cds_msft_profileplususersetting_forms",
+      "Namespace": "ProfilePlus User Settings (Formularios)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_msft_openposition_forms",
+      "Namespace": "Open Positions (Formularios)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_msft_expertisetag_forms",
+      "Namespace": "Expertise Tags (Formularios)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_msft_personposition_forms",
+      "Namespace": "Person Positions (Formularios)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_msft_projecttag_forms",
+      "Namespace": "Project Tags (Formularios)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "Users (Formularios)",
+      "Values": {
+        "Application User": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8",
+        "Information": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
+        "User": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "User form – Business": "c2413504-7eb2-4c59-a087-95d819866114",
+        "User Hierarchy Tile Form": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452"
+      }
+    },
+    {
+      "Kind": "default.cds_msft_projectteammember_forms",
+      "Namespace": "Project Team Members (Formularios)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_msft_project_forms",
+      "Namespace": "Projects (Formularios)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_cre52_projectstatus_forms",
+      "Namespace": "Project Statuses (Formularios)",
+      "Values": {
+        "Information": "e96ff62d-ddff-41a1-a662-4d28b99c17b9"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_projecthealthstatus_forms",
+      "Namespace": "Project Health Statuses (Formularios)",
+      "Values": {
+        "Information": "32f7b167-792e-4f13-84d1-bfa7033ae48c"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_stacktechnology_forms",
+      "Namespace": "Stack Technologies (Formularios)",
+      "Values": {
+        "Information": "0b35186f-c5e4-43e7-a156-ca2e50a423c8"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_usereducation_forms",
+      "Namespace": "Users Education (Formularios)",
+      "Values": {
+        "Information": "2764ae60-a989-4430-95d2-eca63e71eb49"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_educationcertification_forms",
+      "Namespace": "Education Certifications (Formularios)",
+      "Values": {
+        "Information": "c07e84d7-b352-43bc-a601-b6d68c03b910"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_projectstack_1_forms",
+      "Namespace": "Projects Stacks (Formularios)",
+      "Values": {
+        "Information": "437095c3-31dd-4b33-bf23-ea4c70131fed"
+      }
+    },
+    {
+      "Kind": "default.cds_bulkdeletefailure_forms",
+      "Namespace": "Bulk Delete Failures (Formularios)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_cre52_assessmenttemplate_forms",
+      "Namespace": "Assessment Templates (Formularios)",
+      "Values": {
+        "Information": "4bebf45b-23f5-4998-acad-c4558e1c26e9"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_assessmenttemplateitem_forms",
+      "Namespace": "Assessment Template Items (Formularios)",
+      "Values": {
+        "Information": "1aab4733-e503-4ebc-b9d2-9d4190d36784"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_userassessment_forms",
+      "Namespace": "User Assessments (Formularios)",
+      "Values": {
+        "Information": "20f894e3-0c8f-42ee-8052-e06038d35c1d"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_userassessmentdetail_forms",
+      "Namespace": "User Assessment Details (Formularios)",
+      "Values": {
+        "Information": "6dcf8bfe-9d79-4a1e-9cdf-ea37052c685f"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_celerikadmins_forms",
+      "Namespace": "Celerik Admins (Formularios)",
+      "Values": {
+        "Information": "48efb0c0-8509-4c0c-af00-e4a91f9381e5"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_usersstack_forms",
+      "Namespace": "Users Stacks (Formularios)",
+      "Values": {
+        "Information": "ac1414f7-c3bf-44e0-bc91-cd9483bbc370"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_celerikuser_forms",
+      "Namespace": "Celerik++ Users (Formularios)",
+      "Values": {
+        "Information": "8de34b84-5ebd-4b48-97a6-94dd7b4d11d0"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_projectestimationsetting_forms",
+      "Namespace": "Project Estimation Settings (Forms)",
+      "Values": {
+        "Information": "f202d497-4370-411d-814a-8f3a5e707e77"
+      }
+    },
+    {
+      "Kind": "default.cds_cre52_projectestimationfeature_forms",
+      "Namespace": "Project Estimation Features (Forms)",
+      "Values": {}
+    }
+  ]
+}

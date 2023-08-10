@@ -1,0 +1,22 @@
+Dashboard As screen:
+    Fill: =gblAppStyles.Background.Fill
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height-40
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width-40
+        X: =(Parent.Width-Self.Width)-20
+        Y: =(Parent.Height-Self.Height)-20
+        ZIndex: =5
+
+        PowerBI3 As powerbi:
+            BorderThickness: =0
+            DashboardId: ="62cea54c-9b37-4482-a62a-bb480c45b956"
+            Height: =Container1.Height
+            TileUrl: |-
+                ="https://app.powerbi.com/embed?dashboardId=62cea54c-9b37-4482-a62a-bb480c45b956&tileId=c7e5cd24-8c99-4073-8c93-08ebae9b4e36&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVNPVVRILUNFTlRSQUwtVVMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQiLCJlbWJlZEZlYXR1cmVzIjp7Im1vZGVybkVtYmVkIjpmYWxzZX19"
+            Width: =Container1.Width
+            WorkspaceId: ="954c65e1-1913-449e-aa55-f11f2581bcad"
+            ZIndex: =1
+

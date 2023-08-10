@@ -1,0 +1,35 @@
+"'Intranet Wrapper Screen' As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+
+    ScreenContainer1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        MainSectionContainer1 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Center
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            Width: =Parent.Width
+            ZIndex: =3
+
+            PowerBI1 As powerbi:
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =0
+                DashboardId: ="0964bfdc-66c3-43fe-85ea-c7b607d4e7b8"
+                FillPortions: =1
+                Height: =Parent.Height
+                LayoutMinHeight: =Parent.LayoutMinHeight
+                LayoutMinWidth: =Parent.LayoutMinWidth
+                TileUrl: |-
+                    ="https://app.powerbi.com/embed?dashboardId=0964bfdc-66c3-43fe-85ea-c7b607d4e7b8&tileId=1a21af77-d7f0-454d-b269-1ed8640a1f9d&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVNPVVRILUNFTlRSQUwtVVMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQiLCJlbWJlZEZlYXR1cmVzIjp7Im1vZGVybkVtYmVkIjpmYWxzZX19"
+                Width: =Parent.Width
+                WorkspaceId: ="954c65e1-1913-449e-aa55-f11f2581bcad"
+                ZIndex: =2
+

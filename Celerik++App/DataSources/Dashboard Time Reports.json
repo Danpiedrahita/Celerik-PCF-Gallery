@@ -1,0 +1,99 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_dashboardtimereports",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_dashboardtimereport",
+    "MaxGetRowsCount": 500,
+    "Name": "Dashboard Time Reports",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_dashboardtimereport_AsyncOperations": "System Jobs",
+      "cre52_dashboardtimereport_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_dashboardtimereport_DuplicateBaseRecord": "Duplicate Records (cre52_dashboardtimereport_DuplicateBaseRecord)",
+      "cre52_dashboardtimereport_DuplicateMatchingRecord": "Duplicate Records (cre52_dashboardtimereport_DuplicateMatchingRecord)",
+      "cre52_dashboardtimereport_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_dashboardtimereport_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_dashboardtimereport_ProcessSession": "Process Sessions",
+      "cre52_dashboardtimereport_SyncErrors": "Sync Errors",
+      "cre52_dashboardtimereportid": "Dashboard Time Report",
+      "cre52_id": "ID",
+      "cre52_name": "Name",
+      "cre52_time": "Time",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Dashboard Time Reports",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Dashboard Time Reports (Views)",
+    "Name": "_cre52_dashboardtimereport_views",
+    "RelatedEntityName": "Dashboard Time Reports",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "1b4fbe13-f9eb-406d-8810-553f3bcfa197": "Inactive Dashboard Time Reports",
+      "6abebd13-d615-49c1-8503-47656279b624": "Dashboard Time Report Lookup View",
+      "87a032fd-f298-4b9c-996c-fdf659d1a4b3": "Active Dashboard Time Reports",
+      "89a569a0-96fa-40f4-87cd-1a11d010c962": "Dashboard Time Report Associated View",
+      "efbb7d3d-0747-4e68-8b4d-b4564f1592cc": "Dashboard Time Report Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Dashboard Time Reports)",
+    "Name": "cre52_dashboardtimereport_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Dashboard Time Reports"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Dashboard Time Reports",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Dashboard Time Reports)",
+    "Name": "cre52_dashboardtimereport_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Dashboard Time Reports"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Dashboard Time Reports",
+    "Type": "OptionSetInfo"
+  }
+]

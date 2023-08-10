@@ -1,0 +1,96 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_usersstacks",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_usersstack",
+    "MaxGetRowsCount": 500,
+    "Name": "Users Stacks",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_name": "User ID",
+      "cre52_Technology": "Technology",
+      "cre52_usersstack_AsyncOperations": "System Jobs",
+      "cre52_usersstack_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_usersstack_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_usersstack_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_usersstack_ProcessSession": "Process Sessions",
+      "cre52_usersstack_SyncErrors": "Sync Errors",
+      "cre52_usersstackid": "Users Stack",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Users Stacks",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Users Stacks (Views)",
+    "Name": "_cre52_usersstack_views",
+    "RelatedEntityName": "Users Stacks",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "029fefb5-1ad9-41da-bda6-08d4cb32b847": "Inactive Users Stacks",
+      "3e049616-88f3-46b7-838a-c5c395158c68": "Users Stack Associated View",
+      "68cd9225-9ee9-4434-b8cc-a2d889096ab0": "Active Users Stacks",
+      "78c67369-057b-4c99-a429-6de1759a4d3c": "Users Stack Lookup View",
+      "9c717347-5218-43e7-a8cb-99009dee4581": "Users Stack Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Users Stacks)",
+    "Name": "cre52_usersstack_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Users Stacks"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Users Stacks",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Users Stacks)",
+    "Name": "cre52_usersstack_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Users Stacks"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Users Stacks",
+    "Type": "OptionSetInfo"
+  }
+]

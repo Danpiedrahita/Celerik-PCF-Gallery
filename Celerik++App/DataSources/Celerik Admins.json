@@ -1,0 +1,116 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_celerikadminses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_celerikadmins",
+    "MaxGetRowsCount": 500,
+    "Name": "Celerik Admins",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_application": "Application",
+      "cre52_celerikadmins_AsyncOperations": "System Jobs",
+      "cre52_celerikadmins_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_celerikadmins_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_celerikadmins_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_celerikadmins_ProcessSession": "Process Sessions",
+      "cre52_celerikadmins_SyncErrors": "Sync Errors",
+      "cre52_celerikadminsid": "Celerik Admins",
+      "cre52_name": "User ID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Celerik Admins",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Celerik Admins (Views)",
+    "Name": "_cre52_celerikadmins_views",
+    "RelatedEntityName": "Celerik Admins",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0e23de0c-9f79-4fc1-b01d-54190ce91d64": "Celerik Admins Lookup View",
+      "4dc264e9-ecbe-4c84-9dd9-34eae7d7e0ef": "Active Celerik Admins",
+      "5c8448d3-cb51-4a7c-806b-3bdcb393951d": "Celerik Admins Associated View",
+      "6b27208b-f142-428b-a08b-96ab4a17394f": "Celerik Admins Advanced Find View",
+      "8bffb7ca-ec3c-4357-bc09-7343b806b94f": "Inactive Celerik Admins"
+    }
+  },
+  {
+    "DisplayName": "Status (Celerik Admins)",
+    "Name": "cre52_celerikadmins_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Celerik Admins"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Celerik Admins",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Celerik Admins)",
+    "Name": "cre52_celerikadmins_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Celerik Admins"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Celerik Admins",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Celerik Apps",
+    "Name": "cre52_celerikapps",
+    "OptionSetInfoNameMapping": {
+      "653670000": "PMIng",
+      "653670001": "Celerik++"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cre52_application",
+        "OptionSetReferenceEntityName": "Celerik Admins"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cre52_application",
+    "RelatedEntityName": "Celerik Admins",
+    "Type": "OptionSetInfo"
+  }
+]

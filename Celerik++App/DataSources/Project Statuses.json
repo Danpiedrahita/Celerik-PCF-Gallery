@@ -1,0 +1,96 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_projectstatuses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_projectstatus",
+    "MaxGetRowsCount": 500,
+    "Name": "Project Statuses",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_msft_project_ProjectStatus_cre52_projects": "Projects",
+      "cre52_nombre": "Name",
+      "cre52_projectstatus_AsyncOperations": "System Jobs",
+      "cre52_projectstatus_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_projectstatus_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_projectstatus_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_projectstatus_ProcessSession": "Process Sessions",
+      "cre52_projectstatus_SyncErrors": "Sync Errors",
+      "cre52_projectstatusid": "Project Status",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Project Statuses",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Project Statuses (Views)",
+    "Name": "_cre52_projectstatus_views",
+    "RelatedEntityName": "Project Statuses",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "80b98056-a27b-44f4-b9c3-744ad6b741f8": "Project Status Associated View",
+      "8b9927dc-03a2-44f2-9992-9dc3e9082830": "Active Project Statuses",
+      "b3116cbe-1a46-4c05-ac13-d684c5ccd392": "Project Status Advanced Find View",
+      "b949c7ce-c186-4dd1-92e7-29ecd18c132d": "Inactive Project Statuses",
+      "e475f8a2-8fb3-496b-8ad1-a2cc167f091a": "Project Status Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Project Statuses)",
+    "Name": "cre52_projectstatus_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Project Statuses"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Project Statuses",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Project Statuses)",
+    "Name": "cre52_projectstatus_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Project Statuses"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Project Statuses",
+    "Type": "OptionSetInfo"
+  }
+]

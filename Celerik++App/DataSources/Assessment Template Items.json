@@ -1,0 +1,98 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_assessmenttemplateitems",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_assessmenttemplateitem",
+    "MaxGetRowsCount": 500,
+    "Name": "Assessment Template Items",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_assessmenttemplateitem_AsyncOperations": "System Jobs",
+      "cre52_assessmenttemplateitem_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_assessmenttemplateitem_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_assessmenttemplateitem_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_assessmenttemplateitem_ProcessSession": "Process Sessions",
+      "cre52_assessmenttemplateitem_SyncErrors": "Sync Errors",
+      "cre52_assessmenttemplateitemid": "Assessment Template Item",
+      "cre52_cre52_userassessmentdetail_AssessmentTemp": "User Assessment Details",
+      "cre52_name": "Name",
+      "cre52_Template": "Template",
+      "cre52_weight": "Weight",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Assessment Template Items",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Assessment Template Items (Views)",
+    "Name": "_cre52_assessmenttemplateitem_views",
+    "RelatedEntityName": "Assessment Template Items",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "07c3b37e-3a11-4360-be5a-886017c28e70": "Assessment Template Item Associated View",
+      "154239e3-1e24-40ec-8ad4-1612eb511a3f": "Assessment Template Item Lookup View",
+      "2a7d9c3e-4e3c-4a2c-bd34-482800588392": "Active Assessment Template Items",
+      "467a4f41-c7e4-430a-a051-c3ad5df3d185": "Assessment Template Item Advanced Find View",
+      "9fb656db-20fb-4e0f-96bd-439ea10792b3": "Inactive Assessment Template Items"
+    }
+  },
+  {
+    "DisplayName": "Status (Assessment Template Items)",
+    "Name": "cre52_assessmenttemplateitem_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Assessment Template Items"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Assessment Template Items",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Assessment Template Items)",
+    "Name": "cre52_assessmenttemplateitem_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Assessment Template Items"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Assessment Template Items",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,1235 @@
+"'Hidden Global Settings' As screen":
+    Fill: =gblAppStyles.Background.Fill
+    OnVisible: |+
+        =Set(_settingsSection, "owners");
+        Set(_selectedAssessmentTemplate, Blank());
+        Set(_isSelectedAssessmentTemplateNewEntry, false);
+        ClearCollect(
+            colAssessmentTemplateItems,
+            Defaults('Assessment Template Items')
+        );
+        ClearCollect( colAssessmentTemplateItemsForDelete,
+            {
+                ID: Blank(),
+                Name: "",
+                Template: Blank(),
+                Weight: 0
+            }
+        );
+        Clear(colAssessmentTemplateItemsForDelete);
+        
+        Set(_isAddingNewBlankAssessmentTemplate, false);
+        Set(_isAddingDuplicatedAssessmentTemplate, false);
+        Set(_locGlobalSettings_AssessmentsItems_HasChanges, false);
+        Set(_locGlobalSettings_AppOwners_HasChanges, false);
+        
+        Clear(colAppOwners);
+        ForAll(
+            Filter('Celerik Admins', Application = gblAppName),
+            Collect(
+                colAppOwners,
+                {
+                    ID: 'User ID',
+                    appEmailAddress: 'User ID',
+                    appDisplayName: Office365Users.UserProfileV2('User ID').displayName
+                }
+            )
+        );
+        
+        ClearCollect(
+            colAppOwnersToAdd,
+            {
+                ID: Blank(),
+                appEmailAddress: "",
+                appDisplayName: ""
+            }
+        );
+        ClearCollect(
+            colAppOwnersToRemove,
+            {
+                ID: Blank(),
+                appEmailAddress: "",
+                appDisplayName: ""
+            }
+        );
+        Clear(colAppOwnersToAdd);
+        Clear(colAppOwnersToRemove);
+        
+        
+
+    lblSettingsMenuOption_Assessment As Label:
+        Alignment: =Align.Center
+        Color: |-
+            =If(gblThemeHiCo || gblThemeDark,
+            If(
+                _settingsSection = "owners",
+                gblAppColors.NeutralMobileGray25,
+                gblAppColors.NeutralMobileGray200
+            ),
+            If(
+                _settingsSection = "owners",
+                gblAppColors.NeutralWebGray180,
+                gblAppColors.NeutralWebGray130
+            ))
+        DisplayMode: =DisplayMode.Edit
+        FontWeight: =If(_settingsSection = "assessment", FontWeight.Bold, FontWeight.Semibold)
+        Height: =32
+        OnSelect: =Set(_settingsSection, "assessment");
+        Text: ="Assessments"
+        Width: =110
+        X: =Parent.Width - (Self.Width + 40)
+        Y: =40
+        ZIndex: =1
+
+    icoSettingsBack As icon.ChevronLeft:
+        Color: =gblAppStyles.Label.Color
+        Height: =32
+        Icon: =Icon.BackArrow
+        OnSelect: |-
+            =Navigate(
+                    'Team Screen',
+                    ScreenTransition.Fade, {locNavFromAbout: true}
+            )
+        Width: =32
+        X: =40
+        Y: =40
+        ZIndex: =2
+
+    lblSettingsHeader As label:
+        BorderColor: =gblAppStyles.Label.BorderColor
+        BorderThickness: =gblAppStyles.Label.BorderThickness
+        Color: =gblAppStyles.Label.Color
+        DisabledBorderColor: =gblAppStyles.Label.DisabledBorderColor
+        DisabledColor: =gblAppStyles.Label.DisabledColor
+        DisabledFill: =gblAppStyles.Label.DisabledFill
+        Fill: =gblAppStyles.Label.Fill
+        FocusedBorderColor: =gblAppStyles.Label.FocusedBorderColor
+        FocusedBorderThickness: =gblAppStyles.Label.FocusedBorderThickness
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =32*1
+        HoverBorderColor: =gblAppStyles.Label.HoverBorderColor
+        HoverColor: =gblAppStyles.Label.HoverColor
+        HoverFill: =gblAppStyles.Label.HoverFill
+        PressedBorderColor: =gblAppStyles.Label.PressedBorderColor
+        PressedColor: =gblAppStyles.Label.PressedColor
+        PressedFill: =gblAppStyles.Label.PressedFill
+        Role: =TextRole.Heading1
+        Size: =gblAppStyles.Label.Size.Large
+        TabIndex: |-
+            =If(
+                true,
+                -1,
+                0
+            )
+        Text: ="Global Settings"
+        Tooltip: =Self.Text
+        Width: |-
+            =If(
+                'Team Screen'.Size = ScreenSize.ExtraLarge || 'Team Screen'.Size = ScreenSize.Large,
+                Parent.Width - Self.X*2 - btnStartTeamMembersChat.Width - btnScheduleTeamMembersMeeting.Width - btnClearTeamMembersSelection.Width - 80,
+                Parent.Width - Self.X*2
+            )
+        X: =87
+        Y: =40*1
+        ZIndex: =3
+
+    lblSettingsMenuOption_Owners As Label:
+        Alignment: =Align.Center
+        Color: |-
+            =If(gblThemeHiCo || gblThemeDark,
+            If(
+                _settingsSection = "owners",
+                gblAppColors.NeutralMobileGray25,
+                gblAppColors.NeutralMobileGray200
+            ),
+            If(
+                _settingsSection = "owners",
+                gblAppColors.NeutralWebGray180,
+                gblAppColors.NeutralWebGray130
+            ))
+        DisplayMode: =DisplayMode.Edit
+        FontWeight: =If(_settingsSection = "owners", FontWeight.Bold, FontWeight.Semibold)
+        Height: =32
+        OnSelect: =Set(_settingsSection, "owners");
+        Text: ="App Owners"
+        Width: =110
+        X: =lblSettingsMenuOption_Assessment.X - Self.Width
+        Y: =lblSettingsMenuOption_Assessment.Y
+        ZIndex: =4
+
+    shpSettingsMenuOption_Underline As rectangle:
+        Fill: =gblAppStyles.ButtonPrimary.Fill
+        Height: =3
+        Width: =110
+        X: |-
+            =Switch(
+                _settingsSection,
+                "owners",
+                lblSettingsMenuOption_Owners.X,
+                "assessment",
+                lblSettingsMenuOption_Assessment.X
+            )
+        Y: =lblSettingsMenuOption_Owners.Y + lblSettingsMenuOption_Owners.Height
+        ZIndex: =5
+
+    conSettingsOwners As groupContainer.manualLayoutContainer:
+        BorderColor: |-
+            =ColorValue("#BDBDE6")
+        BorderStyle: =BorderStyle.Dashed
+        BorderThickness: =1
+        Height: =Parent.Height - (Self.Y + 40)
+        Visible: =_settingsSection="owners"
+        Width: =Parent.Width - 80
+        X: =40
+        Y: =103
+        ZIndex: =6
+
+        galSettingsAppOwnersBg As rectangle:
+            Fill: |-
+                =If(
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray220,
+                    gblThemeHiCo,
+                    Color.Black,
+                    Color.White
+                )
+            Height: =galSettingsAppOwners.Height + 40
+            Width: =galSettingsAppOwners.Width + 40
+            X: =galSettingsAppOwners.X -20
+            Y: =galSettingsAppOwners.Y -20
+            ZIndex: =1
+
+        galSettingsAppOwners As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
+            DelayItemLoading: =true
+            Height: =conSettingsOwners.Height - 170
+            Items: |+
+                =colAppOwners
+                
+                
+                
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =60
+            Width: =conSettingsOwners.Width - 80
+            WrapCount: |-
+                =If(
+                    conSettingsOwners.Width > 1100,
+                    3,
+                    If( conSettingsOwners.Width <= 1100 && conSettingsOwners.Width > 700, 2, 1 )
+                )
+            X: =40
+            Y: =80
+            ZIndex: =2
+
+            shpSettingsAppOwnerItemBg As rectangle:
+                DisabledFill: =RGBA(0,0,0,0)
+                Fill: |-
+                    =If(
+                            gblThemeDark || gblThemeHiCo,
+                            ColorValue("#BDBDE6"),
+                            ColorValue("#E5E5F1")
+                        )
+                Height: =Parent.TemplateHeight -10
+                HoverFill: =RGBA(0,0,0,0)
+                OnSelect: =Select(Parent)
+                PressedFill: =RGBA(0,0,0,0)
+                TabIndex: =0
+                Width: =Parent.TemplateWidth - 10
+                ZIndex: =1
+
+            imgSettingsAppOwnerPhoto As image:
+                Height: =36
+                Image: |-
+                    =If(
+                        !IsBlank(ThisItem.appEmailAddress),
+                        If(
+                            !IsBlank(Office365Users.UserPhotoV2(ThisItem.appEmailAddress)),
+                            Office365Users.UserPhotoV2(ThisItem.appEmailAddress),
+                            Blank()
+                        )
+                    )
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Width: =36
+                X: =12
+                Y: =7
+                ZIndex: =2
+
+            lblSettingsAppOwnerName As Label:
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =10.5
+                FontWeight: =FontWeight.Semibold
+                Height: =24
+                OnSelect: =Select(Parent)
+                TabIndex: =-1
+                Text: =ThisItem.appDisplayName
+                VerticalAlignment: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - Self.X - 8
+                X: =imgSettingsAppOwnerPhoto.X + imgSettingsAppOwnerPhoto.Width + 12
+                Y: =2
+                ZIndex: =3
+
+            lblSettingsAppOwnerMail As Label:
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                FontWeight: =FontWeight.Normal
+                Height: =24
+                OnSelect: =Select(Parent)
+                TabIndex: =-1
+                Text: =ThisItem.appEmailAddress 
+                VerticalAlignment: =VerticalAlign.Top
+                Width: =lblSettingsAppOwnerName.Width
+                X: =lblSettingsAppOwnerName.X
+                Y: =lblSettingsAppOwnerName.Y + lblSettingsAppOwnerName.Height - 6
+                ZIndex: =4
+
+            icoSettingsAppOwnerDelete As icon.Trash:
+                Color: =galEditMyProfileEducation_Formal.BorderColor
+                Height: =Parent.TemplateHeight - 10
+                Icon: =Icon.Trash
+                OnSelect: |-
+                    =Remove(
+                        colAppOwners,
+                        ThisItem
+                    );
+                    If(
+                        !IsBlank(ThisItem.ID),
+                        Collect( colAppOwnersToRemove, ThisItem)
+                    );
+                    Set(_locGlobalSettings_AppOwners_HasChanges, true)
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                Width: =40
+                X: =Parent.TemplateWidth - (Self.Width + 15)
+                ZIndex: =5
+
+        "txtSettingsSearchAppOwners As 'Text box'":
+            ColorBackground: =gblAppStyles.TextInput.Fill
+            ColorText: =gblAppStyles.TextInput.Color
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: =FontWeight.Semibold
+            Height: =40
+            Placeholder: ="Search for a new app owner"
+            Value: =
+            Width: |-
+                =If(
+                    CountRows(galSettingsAppOwners.AllItems) = 0,
+                    500,
+                    galSettingsAppOwners.TemplateWidth - 10
+                )
+            X: =( ((galSettingsAppOwners.X + galSettingsAppOwners.Width)/2) - (Self.Width / 2) ) + 15
+            Y: |-
+                =galSettingsAppOwnersBg.Y - (Self.Height + 10
+                )
+            ZIndex: =3
+
+        icoSettingsSearchAppOwnersSearch As icon.Search:
+            Color: =galEditMyProfileEducation_Formal.BorderColor
+            Height: =40
+            Icon: =Icon.Search
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Visible: =IsBlank(txtSettingsSearchAppOwners.Value)
+            Width: =40
+            X: =txtSettingsSearchAppOwners.X + txtSettingsSearchAppOwners.Width - Self.Width
+            Y: =10
+            ZIndex: =4
+
+        shpSettingsAppOwners_SearchOwnerBg As rectangle:
+            Fill: |-
+                =If(
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray210,
+                    gblThemeHiCo,
+                    Color.Black,
+                    ColorValue("#F9F8F7")
+                )
+            Height: =galSettingsAppOwners_SearchOwner.Height
+            Visible: =!IsBlank(txtSettingsSearchAppOwners.Value)
+            Width: =galSettingsAppOwners_SearchOwner.Width
+            X: =galSettingsAppOwners_SearchOwner.X
+            Y: =galSettingsAppOwners_SearchOwner.Y
+            ZIndex: =5
+
+        galSettingsAppOwners_SearchOwner As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
+            DelayItemLoading: =true
+            Height: =Self.TemplateHeight * 8
+            Items: |-
+                =If(
+                    IsBlank(txtSettingsSearchAppOwners.Value),
+                    Blank(),
+                    Filter(
+                        Office365Users.SearchUser({searchTerm: txtSettingsSearchAppOwners.Value}),
+                        Not(UserPrincipalName in colAppOwners.appEmailAddress)
+                    )
+                )
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: |
+                =Collect(
+                    colAppOwners,
+                    {
+                        ID: Blank(),
+                        appEmailAddress: ThisItem.Mail,
+                        appDisplayName: ThisItem.DisplayName
+                    }
+                );
+                Reset(txtSettingsSearchAppOwners);
+                Set(_locGlobalSettings_AppOwners_HasChanges, true)
+            TemplatePadding: =0
+            TemplateSize: =48
+            Visible: =!IsBlank(txtSettingsSearchAppOwners.Value)
+            Width: =txtSettingsSearchAppOwners.Width
+            X: =txtSettingsSearchAppOwners.X
+            Y: =txtSettingsSearchAppOwners.Y + txtSettingsSearchAppOwners.Height
+            ZIndex: =6
+
+            imgSettingsAppOwners_SearchOwner_Photo As image:
+                Height: =28
+                Image: |-
+                    =If(
+                        !IsBlank(ThisItem.Mail),
+                        If(
+                            !IsBlank(Office365Users.UserPhotoV2(ThisItem.Mail)),
+                            Office365Users.UserPhotoV2(ThisItem.Mail),
+                            Blank()
+                        )
+                    )
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Width: =28
+                X: =12
+                Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                ZIndex: =1
+
+            lblSettingsAppOwners_SearchOwner_Name As Label:
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =10.5
+                FontWeight: =FontWeight.Semibold
+                Height: =24
+                OnSelect: =Select(Parent)
+                TabIndex: =-1
+                Text: =ThisItem.DisplayName
+                VerticalAlignment: =VerticalAlign.Top
+                Width: =Parent.TemplateWidth - Self.X - 8
+                X: =imgSettingsAppOwners_SearchOwner_Photo.X + imgSettingsAppOwners_SearchOwner_Photo.Width + 12
+                Y: =((Parent.TemplateHeight - 36) / 2) - 4
+                ZIndex: =2
+
+            lblSettingsAppOwners_SearchOwner_Email As Label:
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                FontWeight: =FontWeight.Normal
+                Height: =24
+                OnSelect: =Select(Parent)
+                TabIndex: =-1
+                Text: =ThisItem.Mail
+                VerticalAlignment: =VerticalAlign.Top
+                Width: =lblSettingsAppOwners_SearchOwner_Name.Width
+                X: =lblSettingsAppOwners_SearchOwner_Name.X
+                Y: =lblSettingsAppOwners_SearchOwner_Name.Y + lblSettingsAppOwners_SearchOwner_Name.Height - 6
+                ZIndex: =3
+
+            icoSettingsSearchAppOwnersOwner_Bg As rectangle:
+                DisabledFill: =RGBA(0,0,0,0)
+                Fill: =RGBA(0,0,0,0)
+                Height: =Parent.TemplateHeight
+                HoverFill: =RGBA(0,0,0,0.1)
+                OnSelect: =Select(Parent)
+                PressedFill: =RGBA(0,0,0,0)
+                TabIndex: =0
+                Width: =Parent.TemplateWidth
+                ZIndex: =4
+
+        icoSettingsSearchAppOwnersCancel As icon.Cancel:
+            Color: =galEditMyProfileEducation_Formal.BorderColor
+            Height: =icoSettingsSearchAppOwnersSearch.Height
+            Icon: =Icon.Cancel
+            OnSelect: =Reset(txtSettingsSearchAppOwners)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            Visible: =!IsBlank(txtSettingsSearchAppOwners.Value)
+            Width: =icoSettingsSearchAppOwnersSearch.Width
+            X: =icoSettingsSearchAppOwnersSearch.X
+            Y: =icoSettingsSearchAppOwnersSearch.Y
+            ZIndex: =7
+
+        btnSettingsOwnersSave As Button:
+            ButtonType: ='Button.ButtonType'.Primary
+            DisplayMode: =If(_locGlobalSettings_AppOwners_HasChanges, DisplayMode.Edit, DisplayMode.Disabled )
+            FillColor: =galEditMyProfileEducation_Formal.BorderColor
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            HoverFillColor: =ColorFade(galEditMyProfileEducation_Formal.BorderColor, -20%)
+            OnSelect: |-
+                =ForAll(
+                    colAppOwnersToRemove,
+                    Remove(
+                        'Celerik Admins',
+                        LookUp('Celerik Admins', 'User ID' = appEmailAddress && Application = gblAppName)
+                    )
+                );
+                Clear(colAppOwnersToRemove);
+                ForAll(
+                    Filter(colAppOwners, IsBlank(ID)),
+                    If(
+                        CountRows( Filter('Celerik Admins', 'User ID'=appEmailAddress && Application = gblAppName) ) = 0,
+                        Patch(
+                            'Celerik Admins',
+                            Defaults('Celerik Admins'),
+                            {
+                                'User ID': ThisRecord.appEmailAddress,
+                                Application: gblAppName
+                            }
+                        )
+                    )    
+                );
+                Set(_locGlobalSettings_AppOwners_HasChanges, false)
+            Text: ="Save"
+            Width: =96
+            X: =galSettingsAppOwnersBg.X + galSettingsAppOwnersBg.Width - Self.Width
+            Y: =galSettingsAppOwnersBg.Y + galSettingsAppOwnersBg.Height + 15
+            ZIndex: =8
+
+    conSettingsAssessment As groupContainer.manualLayoutContainer:
+        BorderColor: |-
+            =ColorValue("#BDBDE6")
+        BorderStyle: =BorderStyle.Dashed
+        BorderThickness: =1
+        Height: =Parent.Height - (Self.Y + 40)
+        Visible: =_settingsSection="assessment"
+        Width: =Parent.Width - 80
+        X: =conSettingsOwners.X
+        Y: =conSettingsOwners.Y
+        ZIndex: =7
+
+        shpSettingAssessmentTemplatesBg As rectangle:
+            Fill: |-
+                =If(
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray220,
+                    gblThemeHiCo,
+                    Color.Black,
+                    Color.White
+                )
+            Height: =534
+            Width: |-
+                =If(
+                    conSettingsAssessment.Width > 1200,
+                    370,
+                    300
+                )
+            X: =30
+            Y: =40
+            ZIndex: =1
+
+        galSettingAssessmentTemplates As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
+            DelayItemLoading: =true
+            Height: |-
+                =If(
+                   CountRows(Self.AllItems) <= 14,
+                    Self.TemplateHeight * CountRows(Self.AllItems),
+                    Self.TemplateHeight * 14
+                )
+            Items: =SortByColumns( Filter('Assessment Templates', IsBlank('Deleted On') ), "createdon", SortOrder.Descending )
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: =ThisItem.'Assessment Template'
+            TemplatePadding: =0
+            TemplateSize: =32
+            Width: =shpSettingAssessmentTemplatesBg.Width - 20
+            X: =shpSettingAssessmentTemplatesBg.X + 20
+            Y: =shpSettingAssessmentTemplatesBg.Y + 20
+            ZIndex: =2
+
+            btnSettingAssessmentTemplatesItem As Button:
+                Alignment: =Align.Left
+                BorderColor: =RGBA(109, 49, 162, 1)
+                BorderRadius: =gblAppStyles.ButtonTransparent.RadiusTopLeft
+                BorderStyle: =BorderStyle.Solid
+                BorderThickness: =0
+                ButtonType: ='Button.ButtonType'.Primary
+                DisplayMode: =DisplayMode.Edit
+                FillColor: |-
+                    =If(
+                        ThisItem.IsSelected,
+                        galEditMyProfileEducation_Formal.BorderColor,
+                        If(
+                            gblThemeDark || gblThemeHiCo,
+                            ColorValue("#BDBDE6"),
+                            ColorValue("#E5E5F1")
+                        )
+                    )
+                FontWeight: =FontWeight.Bold
+                Height: =30
+                HoverFillColor: =gblAppStyles.ButtonPrimary.HoverFill
+                HoverTextColor: =RGBA(250,250,250,1)
+                OnSelect: |-
+                    =Set(_selectedAssessmentTemplate, ThisItem);
+                    Clear(colAssessmentTemplateItems);
+                    
+                    If(
+                        CountRows( Filter('Assessment Template Items', Template.'Assessment Template' = ThisItem.'Assessment Template') ) = 0,
+                        
+                        Collect(
+                            colAssessmentTemplateItems,
+                            {
+                                ID: Blank(),
+                                Name: "",
+                                Template: _selectedAssessmentTemplate,
+                                Weight: 0,
+                                Order: CountRows(colAssessmentTemplateItems) + 1
+                            }
+                        );
+                        Set(_isSelectedAssessmentTemplateNewEntry, true),
+                        Set(_isSelectedAssessmentTemplateNewEntry, false);
+                    );
+                    
+                    ForAll(
+                        Filter('Assessment Template Items', Template.'Assessment Template' = ThisItem.'Assessment Template'),
+                        Collect(
+                            colAssessmentTemplateItems,
+                            {
+                                ID: ThisRecord.'Assessment Template Item',
+                                Name: ThisRecord.Name,
+                                Template: ThisRecord.Template,
+                                Weight: ThisRecord.Weight,
+                                Order: CountRows(colAssessmentTemplateItems) + 1
+                            }
+                        )
+                    );
+                    Clear(colAssessmentTemplateItemsForDelete);
+                PaddingStart: =6
+                Text: =ThisItem.Name & If(Text(ThisItem.'Is Draft')="Yes", " (Draft)", "")
+                TextColor: |-
+                    =If(
+                        ThisItem.IsSelected,
+                        RGBA(250,250,250, 1),
+                        If(
+                            gblThemeDark || gblThemeHiCo,
+                            gblAppStyles.Background.Fill,
+                            gblAppStyles.Label.Color
+                        )
+                    )
+                Width: =Parent.TemplateWidth - 75
+                X: =0
+                Y: =0
+                ZIndex: =5
+
+            icoSettingAssessmentTemplatesItem_Duplicate As icon.Copy:
+                Color: |-
+                    =If(
+                        gblThemeDark,
+                        Color.White,
+                        gblThemeHiCo,
+                        Color.White,
+                        galEditMyProfileEducation_Formal.BorderColor
+                    )
+                Height: =32
+                Icon: =Icon.Copy
+                OnSelect: |-
+                    =//Set(_isAddingDuplicatedAssessmentTemplate, true)
+                    
+                    With(
+                        {
+                            AssessmentName: "Celerik Assessment V" & Text( Now(), "yyyy" ) & "." & CountRows(galSettingAssessmentTemplates.AllItems) + 1 & RandBetween(10, 99)
+                        },
+                        Patch(
+                            'Assessment Templates',
+                            Defaults('Assessment Templates'),
+                            {
+                                Name: AssessmentName,
+                                'Is Draft': LookUp(Choices('Assessment Templates'.'Is Draft'), Text(Value)="Yes").Value
+                            }
+                        );
+                    
+                        ClearCollect( colAssessmentItemsForDuplicate, Defaults('Assessment Template Items'));
+                        Clear(colAssessmentItemsForDuplicate);
+                        With(
+                            { JustSavedAssessment: LookUp('Assessment Templates', Name = AssessmentName) },
+                            ForAll(
+                                Filter('Assessment Template Items', Template.'Assessment Template' = ThisItem.'Assessment Template'),
+                                Collect( 
+                                    colAssessmentItemsForDuplicate, 
+                                    {
+                                        Name: ThisRecord.Name,
+                                        Template: JustSavedAssessment,
+                                        Weight: ThisRecord.Weight
+                                    }
+                                )
+                            )
+                        );
+                        ForAll(
+                            colAssessmentItemsForDuplicate,
+                            Patch(
+                                'Assessment Template Items',
+                                Defaults('Assessment Template Items'),
+                                {                    
+                                    Name: ThisRecord.Name,
+                                    Template: ThisRecord.Template,
+                                    Weight: ThisRecord.Weight
+                                }
+                            )
+                        )
+                    )
+                PaddingBottom: =5
+                PaddingTop: =5
+                Width: =32
+                X: =btnSettingAssessmentTemplatesItem.X + btnSettingAssessmentTemplatesItem.Width
+                ZIndex: =6
+
+            icoSettingAssessmentTemplatesItemDelete As icon.Trash:
+                Color: |-
+                    =If(
+                        gblThemeDark,
+                        Color.White,
+                        gblThemeHiCo,
+                        Color.White,
+                        galEditMyProfileEducation_Formal.BorderColor
+                    )
+                Height: =32
+                Icon: =Icon.Trash
+                OnSelect: |-
+                    =Patch( 'Assessment Templates', ThisItem, { 'Deleted On': Now() } );
+                    If(
+                        ThisItem.'Assessment Template' = Parent.Selected.'Assessment Template' ,
+                         Set(_selectedAssessmentTemplate, Blank());
+                    )
+                PaddingBottom: =5
+                PaddingTop: =5
+                Width: =32
+                X: =icoSettingAssessmentTemplatesItem_Duplicate.X + icoSettingAssessmentTemplatesItem_Duplicate.Width
+                ZIndex: =7
+
+        shpSettingAssessmentTemplateDetailsBg As rectangle:
+            Fill: |-
+                =If(
+                    gblThemeDark,
+                    gblAppColors.NeutralWebGray210,
+                    gblThemeHiCo,
+                    Color.Black,
+                    ColorValue("#E5E5F1")
+                )
+            Height: =534
+            Visible: =!IsBlank(_selectedAssessmentTemplate)
+            Width: |-
+                =If(
+                    conSettingsAssessment.Width > 1200,
+                    650,
+                    conSettingsAssessment.Width - (shpSettingAssessmentTemplatesBg.Width + 80)
+                )
+            X: =415
+            Y: =40
+            ZIndex: =3
+
+        galSettingAssessmentTemplateDetails As gallery.BrowseLayout_Vertical_TwoTextOneImageVariant_pcfCore:
+            DelayItemLoading: =true
+            Height: |-
+                =If(
+                   CountRows(Self.AllItems) <= 10,
+                    Self.TemplateHeight * CountRows(Self.AllItems),
+                    Self.TemplateHeight * 10
+                )
+            Items: =SortByColumns(colAssessmentTemplateItems,"createdon",SortOrder.Ascending)
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: =
+            TemplatePadding: =0
+            TemplateSize: =36
+            Visible: =!IsBlank(_selectedAssessmentTemplate)
+            Width: =shpSettingAssessmentTemplateDetailsBg.Width - 50
+            X: =shpSettingAssessmentTemplateDetails_TableHeaderBg.X
+            Y: =shpSettingAssessmentTemplateDetails_TableHeaderBg.Y + shpSettingAssessmentTemplateDetails_TableHeaderBg.Height + 10
+            ZIndex: =4
+
+            "txtSettingAssessmentTemplateDetails_Title As 'Text box'":
+                ColorBackground: =gblAppStyles.TextInput.Fill
+                ColorText: =gblAppStyles.TextInput.Color
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                OnChange: =Set(_locGlobalSettings_AssessmentsItems_HasChanges, true)
+                Placeholder: ="Criteria title"
+                Value: =ThisItem.Name
+                Width: = Parent.TemplateWidth - (txtSettingAssessmentTemplateDetails_Weight.Width + icoSettingAssessmentTemplateDetails_Delete.Width + 20)
+                X: =1
+                Y: =0
+                ZIndex: =6
+
+            "txtSettingAssessmentTemplateDetails_Weight As 'Text box'":
+                ColorBackground: =gblAppStyles.TextInput.Fill
+                ColorText: =gblAppStyles.TextInput.Color
+                DisplayMode: |
+                    =If(
+                        _isSelectedAssessmentTemplateNewEntry || Text(_selectedAssessmentTemplate.'Is Draft')="Yes",
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Height: =32
+                MaxLength: =2
+                OnChange: =Set(_locGlobalSettings_AssessmentsItems_HasChanges, true)
+                Placeholder: ="0"
+                Value: =ThisItem.Weight
+                Width: =50
+                X: =txtSettingAssessmentTemplateDetails_Title.X + txtSettingAssessmentTemplateDetails_Title.Width + 10
+                Y: =0
+                ZIndex: =7
+
+            icoSettingAssessmentTemplateDetails_Delete As icon.Trash:
+                Color: |-
+                    =If(
+                        gblThemeDark,
+                        Color.White,
+                        gblThemeHiCo,
+                        Color.White,
+                        galEditMyProfileEducation_Formal.BorderColor
+                    )
+                Height: =33
+                Icon: =Icon.Trash
+                OnSelect: |
+                    =Remove(
+                        colAssessmentTemplateItems,
+                        ThisItem
+                    );
+                    If(
+                        !IsBlank(ThisItem.ID),
+                        Collect( colAssessmentTemplateItemsForDelete,
+                            {
+                                ID: ThisItem.ID,
+                                Name: ThisItem.Name
+                            }
+                        )
+                    );
+                    Set(_locGlobalSettings_AssessmentsItems_HasChanges, true);
+                PaddingBottom: =3
+                PaddingTop: =3
+                Visible: =(_isSelectedAssessmentTemplateNewEntry || Text(_selectedAssessmentTemplate.'Is Draft')="Yes" ) && First(colAssessmentTemplateItems).Order<>ThisItem.Order
+                Width: =35
+                X: =txtSettingAssessmentTemplateDetails_Weight.X + txtSettingAssessmentTemplateDetails_Weight.Width + 10
+                ZIndex: =8
+
+        grpSettingAssessmentTemplateDetails_TableHeader As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =8
+
+            shpSettingAssessmentTemplateDetails_TableHeaderBg As rectangle:
+                Fill: =galEditMyProfileEducation_Formal.BorderColor
+                Height: =38
+                Visible: =!IsBlank(_selectedAssessmentTemplate)
+                Width: =galSettingAssessmentTemplateDetails.Width
+                X: =shpSettingAssessmentTemplateDetailsBg.X + 25
+                Y: =shpSettingAssessmentTemplateDetailsBg.Y + 30
+                ZIndex: =5
+
+            shpSettingAssessmentTemplateDetails_TableHeader_Title As Label:
+                Color: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Edit
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                PaddingStart: =10
+                Text: ="Title"
+                Visible: =!IsBlank(_selectedAssessmentTemplate)
+                Width: =txtSettingAssessmentTemplateDetails_Title.Width
+                X: =shpSettingAssessmentTemplateDetails_TableHeaderBg.X
+                Y: =shpSettingAssessmentTemplateDetails_TableHeaderBg.Y
+                ZIndex: =6
+
+            shpSettingAssessmentTemplateDetails_TableHeader_Weight As Label:
+                Color: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Edit
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                PaddingStart: =0
+                Text: ="Weight"
+                Visible: =!IsBlank(_selectedAssessmentTemplate)
+                Width: =txtSettingAssessmentTemplateDetails_Weight.Width
+                X: =shpSettingAssessmentTemplateDetails_TableHeader_Title.X + shpSettingAssessmentTemplateDetails_TableHeader_Title.Width + 10
+                Y: =shpSettingAssessmentTemplateDetails_TableHeaderBg.Y
+                ZIndex: =7
+
+        grpSettingsAssessmentAddCriteria As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =10
+
+            btnSettingsAssessmentAddCriteria As Button:
+                Alignment: =Align.Left
+                DisplayMode: =DisplayMode.Edit
+                FillColor: =RGBA(250,250,250, 0)
+                FontWeight: =FontWeight.Bold
+                Height: =32
+                HoverFillColor: =RGBA(250,250,250, 0)
+                HoverTextColor: =ColorFade(galEditMyProfileEducation_Formal.BorderColor, 20%)
+                OnSelect: |-
+                    =Collect(
+                        colAssessmentTemplateItems,
+                        {
+                            Name: "",
+                            Weight: 0,
+                            Template: _selectedAssessmentTemplate,
+                            ID: Blank(),
+                            Order: CountRows(colAssessmentTemplateItems) + 1
+                        }
+                    );
+                    Set(_locGlobalSettings_AssessmentsItems_HasChanges, true);
+                Text: ="Add criteria"
+                TextColor: |-
+                    =If(
+                        gblThemeDark,
+                        Color.White,
+                        gblThemeHiCo,
+                        Color.White,
+                        galEditMyProfileEducation_Formal.BorderColor
+                    )
+                Visible: =(_isSelectedAssessmentTemplateNewEntry || Text(_selectedAssessmentTemplate.'Is Draft')="Yes" ) && !IsBlank(_selectedAssessmentTemplate)
+                Width: =96
+                X: =icoSettingsAssessmentAddCriteria.X + icoSettingsAssessmentAddCriteria.Width 
+                Y: =icoSettingsAssessmentAddCriteria.Y
+                ZIndex: =8
+
+            icoSettingsAssessmentAddCriteria As icon.Add:
+                Color: |-
+                    =If(
+                        gblThemeDark,
+                        Color.White,
+                        gblThemeHiCo,
+                        Color.White,
+                        galEditMyProfileEducation_Formal.BorderColor
+                    )
+                Height: =32
+                Icon: =Icon.Add
+                OnSelect: |-
+                    =Collect(
+                        colAssessmentTemplateItems,
+                        {
+                            Name: "",
+                            Weight: 0,
+                            Template: _selectedAssessmentTemplate,
+                            ID: Blank(),
+                            Order: CountRows(colAssessmentTemplateItems) + 1
+                        }
+                    )
+                PaddingBottom: =5
+                PaddingTop: =5
+                Visible: =(_isSelectedAssessmentTemplateNewEntry || Text(_selectedAssessmentTemplate.'Is Draft')="Yes" ) && !IsBlank(_selectedAssessmentTemplate)
+                Width: =32
+                X: =galSettingAssessmentTemplateDetails.X
+                Y: =galSettingAssessmentTemplateDetails.Y + galSettingAssessmentTemplateDetails.Height + 10
+                ZIndex: =9
+
+        grpSettingsAddAssessment As group:
+            Height: =5
+            Width: =5
+            X: =80
+            Y: =80
+            ZIndex: =14
+
+            lblSettingsAddAssessment As Label:
+                Color: =galEditMyProfileEducation_Formal.BorderColor
+                DisplayMode: =DisplayMode.Edit
+                FontWeight: =FontWeight.Bold
+                Height: =32
+                OnSelect: =Set(_isAddingNewBlankAssessmentTemplate, true)
+                Text: ="Add a blank template"
+                Width: =160
+                X: =icoSettingsAddAssessment.X + icoSettingsAddAssessment.Width
+                Y: =icoSettingsAddAssessment.Y
+                ZIndex: =10
+
+            icoSettingsAddAssessment As icon.Add:
+                Color: =galEditMyProfileEducation_Formal.BorderColor
+                Height: =32
+                Icon: =Icon.Add
+                OnSelect: =Set(_isAddingNewBlankAssessmentTemplate, true)
+                PaddingBottom: =5
+                PaddingTop: =5
+                Width: =32
+                X: =galSettingAssessmentTemplates.X
+                Y: =galSettingAssessmentTemplates.Y + galSettingAssessmentTemplates.Height + 10
+                ZIndex: =11
+
+        btnSettingsAssessment_Save As Button:
+            DisplayMode: |-
+                =If(
+                    Sum(galSettingAssessmentTemplateDetails.AllItems, txtSettingAssessmentTemplateDetails_Weight.Value) = 100 
+                    && !IsBlank(cmbTypeEvaluation.Selected.Value),
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            FillColor: =galEditMyProfileEducation_Formal.BorderColor
+            FontWeight: =FontWeight.Bold
+            Height: =32
+            HoverFillColor: =ColorFade(galEditMyProfileEducation_Formal.BorderColor, -20%)
+            OnSelect: |-
+                =Set(_locGlobalSettings_AssessmentsItems_HasChanges, false);
+                ClearCollect( colAssessmentTemplateItemsForSave,
+                    {
+                        ID: Blank(),
+                        Name: "",
+                        Template: Blank(),
+                        Weight: 0
+                    }
+                );
+                ClearCollect( colAssessmentTemplateItemsForUpdate,
+                    {
+                        ID: Blank(),
+                        Name: "",
+                        Template: Blank(),
+                        Weight: 0
+                    }
+                );
+                Clear(colAssessmentTemplateItemsForSave);
+                Clear(colAssessmentTemplateItemsForUpdate);
+                //Building New items collection
+                ForAll(
+                    Filter(galSettingAssessmentTemplateDetails.AllItems, IsBlank(ID) ),
+                    Collect( 
+                        colAssessmentTemplateItemsForSave, 
+                        {
+                            Name: ThisRecord.txtSettingAssessmentTemplateDetails_Title.Value,
+                            Template: _selectedAssessmentTemplate,
+                            Weight: Int(ThisRecord.txtSettingAssessmentTemplateDetails_Weight.Value)
+                        }
+                    )
+                );
+                //Building collection of items which need to be update
+                ForAll(
+                    Filter(galSettingAssessmentTemplateDetails.AllItems, !IsBlank(ID) ),
+                    Collect( 
+                        colAssessmentTemplateItemsForUpdate, 
+                        {
+                            ID: ThisRecord.ID,
+                            Name: ThisRecord.txtSettingAssessmentTemplateDetails_Title.Value,
+                            Template: _selectedAssessmentTemplate,
+                            Weight: Int(ThisRecord.txtSettingAssessmentTemplateDetails_Weight.Value)
+                        }
+                    )
+                );
+                // Removing deleted template items
+                ForAll(
+                    colAssessmentTemplateItemsForDelete,
+                    Remove(
+                        'Assessment Template Items',
+                        LookUp('Assessment Template Items', 'Assessment Template Item'=ID)
+                    )    
+                );
+                // updating draft template items
+                ForAll(
+                    colAssessmentTemplateItemsForUpdate,
+                    Patch(
+                        'Assessment Template Items',
+                        LookUp('Assessment Template Items', 'Assessment Template Item'=ID),
+                        {                    
+                            Name: ThisRecord.Name,
+                            Weight: ThisRecord.Weight
+                        }
+                    )
+                );
+                // Saving new template items
+                ForAll(
+                    colAssessmentTemplateItemsForSave,
+                    Patch(
+                        'Assessment Template Items',
+                        Defaults('Assessment Template Items'),
+                        {                    
+                            Name: ThisRecord.Name,
+                            Template: ThisRecord.Template,
+                            Weight: ThisRecord.Weight
+                        }
+                    )
+                );
+                
+                
+                Clear(colAssessmentTemplateItemsForSave);
+                Clear(colAssessmentTemplateItemsForUpdate);
+                Clear(colAssessmentTemplateItemsForDelete);
+                
+                // Updating template draft status
+                Patch(
+                    'Assessment Templates',
+                    LookUp('Assessment Templates', 'Assessment Template'=_selectedAssessmentTemplate.'Assessment Template'),
+                    {                    
+                        'Is Draft': LookUp(Choices('Assessment Templates'.'Is Draft'), Text(Value)="No").Value,
+                        'Type Evaluation': cmbTypeEvaluation.Selected.Value
+                    }
+                )
+            Text: ="Save"
+            Visible: =_locGlobalSettings_AssessmentsItems_HasChanges || Text(galSettingAssessmentTemplates.Selected.'Is Draft')="Yes"
+            Width: =96
+            X: =shpSettingAssessmentTemplateDetailsBg.X + shpSettingAssessmentTemplateDetailsBg.Width - (Self.Width + 10)
+            Y: =shpSettingAssessmentTemplateDetailsBg.Y + shpSettingAssessmentTemplateDetailsBg.Height - (Self.Height + 10)
+            ZIndex: =15
+
+        grpSettingsAddAssessment_Submit As group:
+            Height: =5
+            Width: =5
+            X: =100
+            Y: =100
+            ZIndex: =15
+
+            "txtSettingsAddAssessment_Name As 'Text box'":
+                ColorBackground: =gblAppStyles.TextInput.Fill
+                ColorText: =gblAppStyles.TextInput.Color
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Value: ="Celerik Assessment V" & Text( Now(), "yyyy" ) & "." & CountRows(galSettingAssessmentTemplates.AllItems) + 1 & RandBetween(10, 99)
+                Visible: =_isAddingNewBlankAssessmentTemplate
+                Width: =btnSettingAssessmentTemplatesItem.Width
+                X: =galSettingAssessmentTemplates.X
+                Y: =galSettingAssessmentTemplates.Y + galSettingAssessmentTemplates.Height + 10
+                ZIndex: =12
+
+            icoSettingsAddAssessment_Save As icon.Save:
+                Color: |-
+                    =If(
+                        gblThemeDark,
+                        Color.White,
+                        gblThemeHiCo,
+                        Color.White,
+                        galEditMyProfileEducation_Formal.BorderColor
+                    )
+                Height: =32
+                Icon: =Icon.Save
+                OnSelect: |-
+                    =Set(_isAddingNewBlankAssessmentTemplate, false);
+                    Patch(
+                        'Assessment Templates',
+                        Defaults('Assessment Templates'),
+                        {
+                            Name: txtSettingsAddAssessment_Name.Value,
+                            'Is Draft': LookUp(Choices('Assessment Templates'.'Is Draft'), Text(Value)="Yes").Value
+                        }
+                    );
+                    Set(_isSelectedAssessmentTemplateNewEntry, true);
+                    Set(_selectedAssessmentTemplate, Last(galSettingAssessmentTemplates.AllItems))
+                PaddingBottom: =5
+                PaddingTop: =5
+                Visible: =_isAddingNewBlankAssessmentTemplate
+                Width: =32
+                X: =txtSettingsAddAssessment_Name.X + txtSettingsAddAssessment_Name.Width
+                Y: =txtSettingsAddAssessment_Name.Y
+                ZIndex: =13
+
+            icoSettingsAddAssessment_Cancel As icon.CancelBadge:
+                Color: |-
+                    =If(
+                        gblThemeDark,
+                        Color.White,
+                        gblThemeHiCo,
+                        Color.White,
+                        galEditMyProfileEducation_Formal.BorderColor
+                    )
+                Height: =32
+                Icon: =Icon.CancelBadge
+                OnSelect: =Set(_isAddingNewBlankAssessmentTemplate, false);
+                PaddingBottom: =5
+                PaddingTop: =5
+                Visible: =_isAddingNewBlankAssessmentTemplate
+                Width: =32
+                X: =icoSettingsAddAssessment_Save.X + icoSettingsAddAssessment_Save.Width
+                Y: =icoSettingsAddAssessment_Save.Y
+                ZIndex: =14
+
+        lblSettingAssessmentTemplate_DistributedWeight As Label:
+            Alignment: =Align.Left
+            Color: |-
+                =If(
+                    Sum(galSettingAssessmentTemplateDetails.AllItems, txtSettingAssessmentTemplateDetails_Weight.Value) = 100,
+                    gblAppStyles.Label.Color,
+                    RGBA(250,0,0,1)
+                )
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: =FontWeight.Bold
+            Height: =32
+            Text: |-
+                =With(
+                    {
+                        DistributedWeight: Sum(galSettingAssessmentTemplateDetails.AllItems, txtSettingAssessmentTemplateDetails_Weight.Value)
+                    },
+                    "Distributed Weight: " & DistributedWeight & If(Int(DistributedWeight) = 100, "", " (Must be 100)")
+                )
+            Visible: =!IsBlank(_selectedAssessmentTemplate)
+            Width: =320
+            X: =galSettingAssessmentTemplateDetails.X
+            Y: =shpSettingAssessmentTemplateDetailsBg.Y + shpSettingAssessmentTemplateDetailsBg.Height - (Self.Height + 5)
+            ZIndex: =16
+
+        "cmbTypeEvaluation As 'Combo box'.pcfdataset":
+            AllowSearching: =false
+            DefaultSelectedItems: =
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Items: =Choices('Assessment Templates'.'Type Evaluation')
+            Text: ="Select the type of evaluation"
+            Visible: =(_isSelectedAssessmentTemplateNewEntry || Text(_selectedAssessmentTemplate.'Is Draft')="Yes" ) && !IsBlank(_selectedAssessmentTemplate)
+            Width: =250
+            X: =745
+            Y: =galSettingAssessmentTemplateDetails.Height + galSettingAssessmentTemplateDetails.Y + 7
+            ZIndex: =17
+
+            Value4 As pcfDataField.textualColumn:
+                FieldDisplayName: ="Value"
+                FieldName: ="Value"
+                FieldType: ="l"
+                FieldVariantName: ="textualColumn"
+                Order: =2
+                ZIndex: =21
+
+        lblTypeEvaluation As Label:
+            Alignment: =Align.Center
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: ="bold"
+            Height: =32
+            Text: |-
+                ="Type Evaluation: " & _selectedAssessmentTemplate.'Type Evaluation'
+            Visible: =If(Text(_selectedAssessmentTemplate.'Is Draft')="No" && !IsBlank(_selectedAssessmentTemplate), true, false)
+            Width: =320
+            X: =735
+            Y: =537
+            ZIndex: =18
+
+    btnSettingsMenuOption_Owners As Button:
+        ButtonType: ='Button.ButtonType'.Standard
+        DisplayMode: =DisplayMode.Edit
+        FillColor: =RGBA(250,250,250,0)
+        Height: =lblSettingsMenuOption_Owners.Height
+        HoverFillColor: =RGBA(250,250,250,0.1)
+        OnSelect: =Set(_settingsSection, "owners");
+        Text: =""
+        TextColor: =
+        Width: =lblSettingsMenuOption_Owners.Width
+        X: =lblSettingsMenuOption_Owners.X
+        Y: =lblSettingsMenuOption_Owners.Y
+        ZIndex: =8
+
+    btnSettingsMenuOption_Assessment As Button:
+        ButtonType: ='Button.ButtonType'.Standard
+        DisplayMode: =DisplayMode.Edit
+        FillColor: =RGBA(250,250,250,0)
+        Height: =lblSettingsMenuOption_Assessment.Height
+        HoverFillColor: =RGBA(250,250,250,0.1)
+        OnSelect: =Set(_settingsSection, "assessment");
+        Text: =""
+        Width: =lblSettingsMenuOption_Assessment.Width
+        X: =lblSettingsMenuOption_Assessment.X
+        Y: =lblSettingsMenuOption_Assessment.Y
+        ZIndex: =9
+

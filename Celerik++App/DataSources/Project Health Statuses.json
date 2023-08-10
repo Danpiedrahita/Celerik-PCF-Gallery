@@ -1,0 +1,97 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_projecthealthstatuses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_projecthealthstatus",
+    "MaxGetRowsCount": 500,
+    "Name": "Project Health Statuses",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_color": "Color",
+      "cre52_msft_project_HealthStatus_cre52_projecthe": "Projects",
+      "cre52_nombre": "Name",
+      "cre52_projecthealthstatus_AsyncOperations": "System Jobs",
+      "cre52_projecthealthstatus_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_projecthealthstatus_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_projecthealthstatus_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_projecthealthstatus_ProcessSession": "Process Sessions",
+      "cre52_projecthealthstatus_SyncErrors": "Sync Errors",
+      "cre52_projecthealthstatusid": "Project Health Status",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Project Health Statuses",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Project Health Statuses (Views)",
+    "Name": "_cre52_projecthealthstatus_views",
+    "RelatedEntityName": "Project Health Statuses",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "26e27732-4493-4758-90d6-b89f9d30bbce": "Project Health Status Lookup View",
+      "28cafb5a-b370-4710-86d2-42a4dedd0cc8": "Project Health Status Advanced Find View",
+      "872f3bb4-2c4e-457b-86de-19f9d74b0dae": "Inactive Project Health Statuses",
+      "9c7ebc9d-51b9-4aa7-af43-c5cf258385e5": "Project Health Status Associated View",
+      "e0e3c08d-ccd4-4e70-bce7-812573adcfd1": "Active Project Health Statuses"
+    }
+  },
+  {
+    "DisplayName": "Status (Project Health Statuses)",
+    "Name": "cre52_projecthealthstatus_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Project Health Statuses"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Project Health Statuses",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Project Health Statuses)",
+    "Name": "cre52_projecthealthstatus_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Project Health Statuses"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Project Health Statuses",
+    "Type": "OptionSetInfo"
+  }
+]

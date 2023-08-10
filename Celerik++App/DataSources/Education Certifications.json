@@ -1,0 +1,118 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_educationcertifications",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_educationcertification",
+    "MaxGetRowsCount": 500,
+    "Name": "Education Certifications",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_cre52_usereducation_Certification_cre52_e": "Users Education",
+      "cre52_educationcertification_AsyncOperations": "System Jobs",
+      "cre52_educationcertification_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_educationcertification_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_educationcertification_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_educationcertification_ProcessSession": "Process Sessions",
+      "cre52_educationcertification_SyncErrors": "Sync Errors",
+      "cre52_educationcertificationid": "Education Certification",
+      "cre52_name": "Name",
+      "cre52_type": "Type",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Education Certifications",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Education Certifications (Views)",
+    "Name": "_cre52_educationcertification_views",
+    "RelatedEntityName": "Education Certifications",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "9068727a-e916-4181-9d09-bb5de2baa7cf": "Education Certification Advanced Find View",
+      "9e60012d-cf9f-4f03-ad68-fa647620d1e4": "Inactive Education Certifications",
+      "a15a2b52-4e60-4536-a4c3-8ac2ca83e5e6": "Education Certification Lookup View",
+      "f4f1982e-3af0-46ee-afc0-c01293f9e20d": "Education Certification Associated View",
+      "f8ca7b58-e8c8-4dcc-a235-90193006b3b3": "Active Education Certifications"
+    }
+  },
+  {
+    "DisplayName": "Type (Education Certifications)",
+    "Name": "cre52_educationcertification_cre52_type",
+    "OptionSetInfoNameMapping": {
+      "1": "Degree",
+      "2": "Certification",
+      "3": "Language"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cre52_type",
+        "OptionSetReferenceEntityName": "Education Certifications"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cre52_type",
+    "RelatedEntityName": "Education Certifications",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Education Certifications)",
+    "Name": "cre52_educationcertification_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Education Certifications"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Education Certifications",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Education Certifications)",
+    "Name": "cre52_educationcertification_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Education Certifications"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Education Certifications",
+    "Type": "OptionSetInfo"
+  }
+]

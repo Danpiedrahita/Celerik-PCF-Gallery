@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_usereducationattachments",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_usereducationattachment",
+    "MaxGetRowsCount": 500,
+    "Name": "User Education Attachments",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_category": "Category",
+      "cre52_extension": "Extension",
+      "cre52_filecontent": "FileContent",
+      "cre52_nombre": "FileName",
+      "cre52_url": "Url",
+      "cre52_user": "User",
+      "cre52_usereducationattachment_AsyncOperations": "System Jobs",
+      "cre52_usereducationattachment_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_usereducationattachment_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_usereducationattachment_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_usereducationattachment_ProcessSession": "Process Sessions",
+      "cre52_usereducationattachment_SyncErrors": "Sync Errors",
+      "cre52_usereducationattachmentid": "User Education Attachment",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "User Education Attachments",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "User Education Attachments (Views)",
+    "Name": "_cre52_usereducationattachment_views",
+    "RelatedEntityName": "User Education Attachments",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "4caaec7a-d152-4c2b-bd36-544adb26919c": "User Education Attachment Associated View",
+      "8dda1e63-eba4-4688-b8b1-6f638f8a5192": "Active User Education Attachments",
+      "92a14898-1de9-4e5e-a4d7-2ff6f29dbceb": "User Education Attachment Advanced Find View",
+      "a651e834-b167-47ea-8905-950a22113977": "User Education Attachment Lookup View",
+      "a87cec7e-8732-4434-bbc7-f5f0e1341a3e": "Inactive User Education Attachments"
+    }
+  },
+  {
+    "DisplayName": "Status (User Education Attachments)",
+    "Name": "cre52_usereducationattachment_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "User Education Attachments"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "User Education Attachments",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (User Education Attachments)",
+    "Name": "cre52_usereducationattachment_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "User Education Attachments"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "User Education Attachments",
+    "Type": "OptionSetInfo"
+  }
+]

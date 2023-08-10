@@ -1,0 +1,99 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_celerikusers",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_celerikuser",
+    "MaxGetRowsCount": 500,
+    "Name": "Celerik++ Users",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_businessrole": "JobTitle",
+      "cre52_celerikuser_AsyncOperations": "System Jobs",
+      "cre52_celerikuser_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_celerikuser_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_celerikuser_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_celerikuser_ProcessSession": "Process Sessions",
+      "cre52_celerikuser_SyncErrors": "Sync Errors",
+      "cre52_celerikuserid": "Celerik++ User",
+      "cre52_city": "City",
+      "cre52_name": "User ID",
+      "cre52_profileid": "Profile ID",
+      "cre52_username": "UserName",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Celerik++ Users",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Celerik++ Users (Views)",
+    "Name": "_cre52_celerikuser_views",
+    "RelatedEntityName": "Celerik++ Users",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "00861640-0645-4014-900e-ec77663163e2": "Celerik++ User Associated View",
+      "281abdc6-d007-4941-aa1a-065b4225683e": "Active Celerik++ Users",
+      "3a96cdd1-2a0f-4620-b42e-1cdc8037696d": "Celerik++ User Lookup View",
+      "83a686d2-b062-41d0-ab77-8f834304befe": "Inactive Celerik++ Users",
+      "c57797e3-facf-48a8-903e-1fb2dfcef5a1": "Celerik++ User Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Celerik++ Users)",
+    "Name": "cre52_celerikuser_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Celerik++ Users"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Celerik++ Users",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Celerik++ Users)",
+    "Name": "cre52_celerikuser_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Celerik++ Users"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Celerik++ Users",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,97 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_stacktechnologies",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_stacktechnology",
+    "MaxGetRowsCount": 500,
+    "Name": "Stack Technologies",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_cre52_projectstack_1_Technology_cre52_sta": "Projects Stacks",
+      "cre52_cre52_usersstack_Technology_cre52_stackte": "Users Stacks",
+      "cre52_nombre": "Name",
+      "cre52_stacktechnology_AsyncOperations": "System Jobs",
+      "cre52_stacktechnology_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_stacktechnology_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_stacktechnology_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_stacktechnology_ProcessSession": "Process Sessions",
+      "cre52_stacktechnology_SyncErrors": "Sync Errors",
+      "cre52_stacktechnologyid": "Stack Technology",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Stack Technologies",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Stack Technologies (Views)",
+    "Name": "_cre52_stacktechnology_views",
+    "RelatedEntityName": "Stack Technologies",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "01d78930-c249-411f-9b03-3afc03aad83d": "Active Stack Technologies",
+      "654b8ced-31b8-49d3-83ae-2fa9d736f9a8": "Stack Technology Lookup View",
+      "80f67662-ca77-4f7a-9696-bf4015cc3a87": "Inactive Stack Technologies",
+      "a96bb697-d251-45fc-8a88-cb3f4a361526": "Stack Technology Associated View",
+      "da177f7d-a60a-49ea-823e-f7431d62365e": "Stack Technology Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Stack Technologies)",
+    "Name": "cre52_stacktechnology_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Stack Technologies"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Stack Technologies",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Stack Technologies)",
+    "Name": "cre52_stacktechnology_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Stack Technologies"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Stack Technologies",
+    "Type": "OptionSetInfo"
+  }
+]

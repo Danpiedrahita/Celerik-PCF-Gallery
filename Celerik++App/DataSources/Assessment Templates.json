@@ -1,0 +1,140 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cre52_assessmenttemplates",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cre52_assessmenttemplate",
+    "MaxGetRowsCount": 500,
+    "Name": "Assessment Templates",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cre52_assessmenttemplate_AsyncOperations": "System Jobs",
+      "cre52_assessmenttemplate_BulkDeleteFailures": "Bulk Delete Failures",
+      "cre52_assessmenttemplate_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cre52_assessmenttemplate_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cre52_assessmenttemplate_ProcessSession": "Process Sessions",
+      "cre52_assessmenttemplate_SyncErrors": "Sync Errors",
+      "cre52_assessmenttemplateid": "Assessment Template",
+      "cre52_cre52_assessmenttemplateitem_Template_cre": "Assessment Template Items",
+      "cre52_cre52_userassessment_Assessment_cre52_ass": "User Assessments",
+      "cre52_deletedon": "Deleted On",
+      "cre52_isdraft": "Is Draft",
+      "cre52_nombre": "Name",
+      "cre52_typeevaluation": "Type Evaluation",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Assessment Templates",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Assessment Templates (Vistas)",
+    "Name": "_cre52_assessmenttemplate_views",
+    "RelatedEntityName": "Assessment Templates",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2c63d739-2407-4e59-985c-d500a4f90797": "Active Assessment Templates",
+      "6e9114b0-477f-43cc-aaa6-3f78ae72141a": "Assessment Template Advanced Find View",
+      "7c1a3c81-72f7-49ed-a3ba-d8393f4e3dbc": "Assessment Template Lookup View",
+      "abe4cef4-45ac-4fa6-8333-cba43decf8e9": "Assessment Template Associated View",
+      "f53a13cc-220b-4df7-9092-db53aa2123a9": "Inactive Assessment Templates"
+    }
+  },
+  {
+    "DisplayName": "Is Draft (Assessment Templates)",
+    "Name": "cre52_assessmenttemplate_cre52_isdraft",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cre52_isdraft",
+        "OptionSetReferenceEntityName": "Assessment Templates"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cre52_isdraft",
+    "RelatedEntityName": "Assessment Templates",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (Assessment Templates)",
+    "Name": "cre52_assessmenttemplate_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Assessment Templates"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Assessment Templates",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Assessment Templates)",
+    "Name": "cre52_assessmenttemplate_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Assessment Templates"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Assessment Templates",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Type Evaluation",
+    "Name": "cre52_typeevaluation",
+    "OptionSetInfoNameMapping": {
+      "1": "Periodic",
+      "2": "Promotion"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cre52_typeevaluation",
+        "OptionSetReferenceEntityName": "Assessment Templates"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cre52_typeevaluation",
+    "RelatedEntityName": "Assessment Templates",
+    "Type": "OptionSetInfo"
+  }
+]

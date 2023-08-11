@@ -225,21 +225,6 @@
     "OverridableProperties": {},
     "Version": "1.3.0"
   },
-  "HelloPCF": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": false,
-    "Id": "http://microsoft.com/appmagic/powercontrol/msl_SampleNamespace.HelloPCF",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": true,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "msl_SampleNamespace.HelloPCF",
-    "OverridableProperties": {},
-    "TemplateDisplayName": "HelloPCF",
-    "Version": "1.0.0"
-  },
   "Host": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,

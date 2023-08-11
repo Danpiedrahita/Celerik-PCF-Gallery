@@ -1,14 +1,4 @@
 {
-  "components": [
-    {
-      "Capabilities": {
-        "PCFExternalServiceUsageAllowed": false
-      },
-      "ComponentName": "CustomControl",
-      "Identifier": "msl_SampleNamespace.HelloPCF",
-      "IdentifierType": 0
-    }
-  ],
   "DatasetName": "default.cds",
   "EntityName": "Projects Stacks",
   "InstanceUrl": "https://org67d0a602.crm2.dynamics.com/",
